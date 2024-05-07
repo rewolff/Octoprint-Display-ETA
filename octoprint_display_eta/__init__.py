@@ -43,10 +43,10 @@ class DisplayETAPlugin(octoprint.plugin.AssetPlugin,
         elif self._settings.get(['time24hr']) is True:
 
             # See http://babel.pocoo.org/en/latest/dates.html#time-fields
-            self.CustomTimeFormat = "'ETA is 'HH:mm:ss"
+            self.CustomTimeFormat = "HH:mm:ss"
         else:
             # See http://babel.pocoo.org/en/latest/dates.html#time-fields
-            self.CustomTimeFormat = "'ETA is 'hh:mm:ss a"
+            self.CustomTimeFormat = "hh:mm:ss a"
 
         # Check if the user has chosen to remove colons from the ETA displayed on the printer LCD
         self.replaceColons = self._settings.get(['removeColons'])
@@ -67,7 +67,7 @@ class DisplayETAPlugin(octoprint.plugin.AssetPlugin,
             removeColons=False,
             updateInterval=10.0,
             customTimeStringEnable=False,
-            customTimeString="'ETA is 'hh:mm:ss a",
+            customTimeString="hh:mm:ss a",
             locale=default_locale('LC_TIME') if len(default_locale('LC_TIME')) > 0 and (default_locale('LC_TIME') in localedata.locale_identifiers()) else "en_US"
         )
 
@@ -84,11 +84,11 @@ class DisplayETAPlugin(octoprint.plugin.AssetPlugin,
         elif self._settings.get(["time24hr"]) is True:
             self.logger.debug('24HR = True')
             # See http://babel.pocoo.org/en/latest/dates.html#time-fields for details on the time format
-            self.CustomTimeFormat = "'ETA is 'HH:mm:ss"
+            self.CustomTimeFormat = "HH:mm:ss"
         else:
             self.logger.debug('24HR = False')
             # See http://babel.pocoo.org/en/latest/dates.html#time-fields for details on the time format
-            self.CustomTimeFormat = "'ETA is 'hh:mm:ss a"
+            self.CustomTimeFormat = "hh:mm:ss a"
 
         # Check if the user has chosen to display the ETA on the printer LCD
         if self._settings.get(["displayOnPrinter"]) is True:
